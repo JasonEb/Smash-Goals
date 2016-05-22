@@ -44,25 +44,15 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var React = __webpack_require__(1);
-	var ReactDOM = __webpack_require__(38);
-	var SmashForm = __webpack_require__(168);
-	
-	var MyComponent = React.createClass({
-	  displayName: 'MyComponent',
-	
-	  render: function () {
-	    return React.createElement(
-	      'div',
-	      null,
-	      'Testing my component'
-	    );
-	  }
-	});
+	var React = __webpack_require__(1),
+	    ReactDOM = __webpack_require__(38),
+	    SmashForm = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./smash_form.jsx\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 	
 	document.addEventListener("DOMContentLoaded", function () {
-	  ReactDOM.render(React.createElement(SmashForm, null), document.getElementById('main'));
+	    ReactDOM.render(React.createElement(SmashForm, null), document.getElementById('main'));
 	});
+	
+	SmashListStore = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./stores/smash_list_store.js\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 /***/ },
 /* 1 */
@@ -20336,64 +20326,6 @@
 	var ReactMount = __webpack_require__(160);
 	
 	module.exports = ReactMount.renderSubtreeIntoContainer;
-
-/***/ },
-/* 168 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(1);
-	var ReactDOM = __webpack_require__(38);
-	
-	var SmashForm = React.createClass({
-	  displayName: 'SmashForm',
-	
-	  render: function () {
-	    return React.createElement(
-	      'div',
-	      { 'class': 'smash-list' },
-	      React.createElement(
-	        'div',
-	        { 'class': 'list-header' },
-	        React.createElement(
-	          'section',
-	          null,
-	          'Special'
-	        ),
-	        React.createElement(
-	          'section',
-	          { 'class': 'header-edge' },
-	          '[]'
-	        )
-	      ),
-	      React.createElement(
-	        'ul',
-	        { 'class': 'list-items' },
-	        React.createElement(
-	          'li',
-	          null,
-	          '• Fireball'
-	        ),
-	        React.createElement(
-	          'li',
-	          null,
-	          '↔  Green Missile'
-	        ),
-	        React.createElement(
-	          'li',
-	          null,
-	          '↑  Super Jump Punch'
-	        ),
-	        React.createElement(
-	          'li',
-	          null,
-	          '↓  Luigi Cyclone'
-	        )
-	      )
-	    );
-	  }
-	});
-	
-	module.exports = SmashForm;
 
 /***/ }
 /******/ ]);
