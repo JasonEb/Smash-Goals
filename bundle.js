@@ -46,13 +46,13 @@
 
 	var React = __webpack_require__(1),
 	    ReactDOM = __webpack_require__(38),
-	    SmashForm = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./smash_form.jsx\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	    SmashForm = __webpack_require__(168);
 	
 	document.addEventListener("DOMContentLoaded", function () {
 	    ReactDOM.render(React.createElement(SmashForm, null), document.getElementById('main'));
 	});
 	
-	SmashListStore = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./stores/smash_list_store.js\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	SmashListStore = __webpack_require__(169);
 
 /***/ },
 /* 1 */
@@ -20326,6 +20326,130 @@
 	var ReactMount = __webpack_require__(160);
 	
 	module.exports = ReactMount.renderSubtreeIntoContainer;
+
+/***/ },
+/* 168 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+	
+	var SmashForm = React.createClass({
+	  displayName: "SmashForm",
+	
+	  render: function () {
+	    return React.createElement(
+	      "div",
+	      { className: "list" },
+	      React.createElement(
+	        "h3",
+	        { className: "list-header" },
+	        "Special"
+	      ),
+	      React.createElement(
+	        "ul",
+	        { className: "list-items" },
+	        React.createElement(
+	          "li",
+	          null,
+	          "Fireball"
+	        ),
+	        React.createElement(
+	          "li",
+	          null,
+	          "Green Missile"
+	        ),
+	        React.createElement(
+	          "li",
+	          null,
+	          "Super Jump Punch"
+	        ),
+	        React.createElement(
+	          "li",
+	          null,
+	          "Luigi Cyclone"
+	        ),
+	        React.createElement(
+	          "li",
+	          null,
+	          React.createElement("input", { className: "list-form", type: "text", placeholder: "Enter a request" })
+	        )
+	      )
+	    );
+	  }
+	});
+	
+	module.exports = SmashForm;
+
+/***/ },
+/* 169 */
+/***/ function(module, exports) {
+
+	var _smash_list_items = [];
+	var _callbacks = [];
+	
+	var SmashListStore = {
+	  changed: function () {
+	    //this should be called whenever the collection changes.
+	    //Calls every callback in _callbacks
+	    _callbacks.forEach(function (callback) {
+	      callback();
+	    });
+	  },
+	
+	  addChangedHandler: function (callback) {
+	    _callbacks.push(callback);
+	  },
+	
+	  removeChangedHandler: function (callback) {
+	    var idx = _callbacks.indexOf(callback);
+	
+	    if (idx !== -1) {
+	      _callbacks.splice(idx, 1);
+	    }
+	  },
+	
+	  //CRUD
+	  all: function () {
+	    return _smash_list_items.slice();
+	  },
+	
+	  fetch: function (page_idx) {
+	    return "Not set up yet";
+	  },
+	
+	  updateSmashList: function (id, payload) {
+	    var smash_list_item = SmashListStore.find(id);
+	
+	    if (smash_list_item !== -1) {
+	      $.ajax({
+	        url: 'api/smash_list_items/' + id,
+	        data: { smash_list_item: payload },
+	        type: 'PATCH',
+	        success: function (result) {
+	          smash_list_item.name = result.name;
+	          smash_list_item.url = result.url;
+	          smash_list_item.note = result.note;
+	          SmashListStore.changed();
+	        }
+	      });
+	    }
+	  },
+	
+	  find: function (id) {
+	    var smash_list_item, i;
+	    for (i = 0; i < _smash_list_items.length; i++) {
+	      smash_list_item = _smash_list_items[i];
+	
+	      if (smash_list_item.id === id) {
+	        return smash_list_item;
+	      }
+	    }
+	
+	    return -1;
+	  }
+	};
+	
+	module.exports = SmashListStore;
 
 /***/ }
 /******/ ]);

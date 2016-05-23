@@ -1,6 +1,6 @@
 var React = require('react'),
     ReactDOM = require('react-dom'),
-    SmashForm = require('./smash_form.jsx');
+    SmashForm = require('./components/smash_form.jsx');
 
 document.addEventListener("DOMContentLoaded", function () {
   ReactDOM.render(<SmashForm />, document.getElementById('main'));

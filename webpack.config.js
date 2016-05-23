@@ -1,6 +1,6 @@
 module.exports = {
   context: __dirname,
-  entry: "./components/smash_form_app.jsx",
+  entry: "./smash_form_app.jsx",
   output: {
     path: "./",
     filename: "bundle.js"
