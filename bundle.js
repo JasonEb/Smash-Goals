@@ -20351,27 +20351,27 @@
 	        React.createElement(
 	          "li",
 	          null,
-	          "Fireball"
+	          "Fireball gimp"
 	        ),
 	        React.createElement(
 	          "li",
 	          null,
-	          "Green Missile"
+	          "Green Missile Misfire read"
 	        ),
 	        React.createElement(
 	          "li",
 	          null,
-	          "Super Jump Punch"
+	          "Super Jump Punch OoS punish"
 	        ),
 	        React.createElement(
 	          "li",
 	          null,
-	          "Luigi Cyclone"
+	          "Luigi Cyclone gimp"
 	        ),
 	        React.createElement(
 	          "li",
 	          null,
-	          React.createElement("input", { className: "list-form", type: "text", placeholder: "Enter a request" })
+	          React.createElement("input", { className: "list-form", type: "text", placeholder: "Enter a goal!" })
 	        )
 	      )
 	    );

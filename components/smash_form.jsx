@@ -8,12 +8,12 @@ var SmashForm = React.createClass({
         <h3 className="list-header">Special</h3>
 
         <ul className="list-items">
-          <li>Fireball</li>
-          <li>Green Missile</li>
-          <li>Super Jump Punch</li>
-          <li>Luigi Cyclone</li>
+          <li>Fireball gimp</li>
+          <li>Green Missile Misfire read</li>
+          <li>Super Jump Punch OoS punish</li>
+          <li>Luigi Cyclone gimp</li>
           <li>
-            <input className="list-form" type="text" placeholder="Enter a request">
+            <input className="list-form" type="text" placeholder="Enter a goal!">
             </input>
           </li>
         </ul>
