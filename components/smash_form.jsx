@@ -25,7 +25,8 @@ var SmashForm = React.createClass({
     var newItem = {
       //assumming id is next here
       id: this.state.items.slice(-1)[0].id + 1,
-      description: e.target.children[0].value
+      description: e.target.children[0].value,
+      completed: false
     };
 
     SmashListStore.add(newItem);
@@ -33,9 +34,10 @@ var SmashForm = React.createClass({
   },
 
   render: function () {
-    var items = this.state.items.map(function (item) {
-      return <li key={item.id}>{item.description}</li>
+    var items = this.state.items.map(function (item, idx) {
+      return <Item key={idx} item={item} />
     })
+
     return (
       <div className="list">
 

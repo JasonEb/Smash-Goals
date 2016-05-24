@@ -20360,7 +20360,8 @@
 	    var newItem = {
 	      //assumming id is next here
 	      id: this.state.items.slice(-1)[0].id + 1,
-	      description: e.target.children[0].value
+	      description: e.target.children[0].value,
+	      completed: false
 	    };
 	
 	    SmashListStore.add(newItem);
@@ -20368,13 +20369,10 @@
 	  },
 	
 	  render: function () {
-	    var items = this.state.items.map(function (item) {
-	      return React.createElement(
-	        'li',
-	        { key: item.id },
-	        item.description
-	      );
+	    var items = this.state.items.map(function (item, idx) {
+	      return React.createElement(Item, { key: idx, item: item });
 	    });
+	
 	    return React.createElement(
 	      'div',
 	      { className: 'list' },
@@ -20504,8 +20502,15 @@
 	var Item = React.createClass({
 	  displayName: 'Item',
 	
+	  handleClick: function (e) {},
 	  render: function () {
-	    return React.createElement('li', { className: itemClass });
+	    var item = this.props.item;
+	
+	    return React.createElement(
+	      'li',
+	      { onClick: this.handleClick },
+	      item.description
+	    );
 	  }
 	});
 	
