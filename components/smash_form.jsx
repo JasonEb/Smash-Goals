@@ -33,6 +33,14 @@ var SmashForm = React.createClass({
     e.target.children[0].value = "";
   },
 
+  cleanHeaderEdit: function(e) {
+    e.preventDefault();
+
+    //Reading textContent strips new lines. So this trick cleans newlines
+    //From an contentEditable element, while only limiting the text length.
+    e.target.textContent = e.target.textContent.slice(0,26);
+  },
+
   render: function () {
     var items = this.state.items.map(function (item, idx) {
       return <Item key={idx} item={item}/>
@@ -41,7 +49,10 @@ var SmashForm = React.createClass({
     return (
       <div className="list">
 
-        <h3 className="list-header">Smash Goals</h3>
+        <h3 className="list-header"
+            contentEditable={true}
+            onInput={this.cleanHeaderEdit}
+            ref="headerText">Smash Goals</h3>
 
         <ul className="list-items">
           {items}
