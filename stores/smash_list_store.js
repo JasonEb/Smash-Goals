@@ -32,11 +32,27 @@ var SmashListStore = {
     return _smash_list_items.slice();
   },
 
+  delete: function(id) {
+    var smash_list_item, i;
+
+    for(i = 0; i < _smash_list_items.length; i++){
+      smash_list_item = _smash_list_items[i];
+
+      if (smash_list_item.id === id) {
+        _smash_list_items.splice(i, 1);
+        SmashListStore.changed();
+        return 1;
+      }
+    }
+
+    return -1;
+  },
+
   fetch: function () {
     _smash_list_items = [
-        {id: 1, description: "Fireball gimp"},
-        {id: 2, description: "Luigi Missle misfire read"},
-        {id: 3, description: "Super Jump Punch OoS punish"}
+        {id: 0, description: "Fireball gimp"},
+        {id: 1, description: "Luigi Missle misfire read"},
+        {id: 2, description: "Super Jump Punch OoS punish"}
       ];
 
     SmashListStore.changed();
