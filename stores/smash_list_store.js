@@ -27,8 +27,8 @@ var SmashListStore = {
     return _smash_list_items.slice();
   },
 
-  fetch: function (page_idx) {
-    return "Not set up yet";
+  fetch: function () {
+    _smash_list_items =  ["Fireball gimp", "Green Missile misfire read", "Super Jump Punch OoS punish"]
   },
 
   updateSmashList: function (id, payload) {
@@ -40,9 +40,7 @@ var SmashListStore = {
         data: {smash_list_item: payload},
         type: 'PATCH',
         success: function (result) {
-          smash_list_item.name = result.name;
-          smash_list_item.url = result.url;
-          smash_list_item.note = result.note;
+          smash_list_item.goal = result.goal;
           SmashListStore.changed();
         }
       });

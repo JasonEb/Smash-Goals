@@ -20336,7 +20336,32 @@
 	var SmashForm = React.createClass({
 	  displayName: "SmashForm",
 	
+	  getInitialState: function () {
+	    return {
+	      items: SmashListStore.all()
+	    };
+	  },
+	
+	  smashListChanged: function () {
+	    var self = this;
+	    self.setState({ items: SmashListStore.all() });
+	  },
+	
+	  componentDidMount: function () {
+	    SmashListStore.addChangedHandler(this.smashListChanged);
+	    SmashListStore.fetch();
+	  },
+	
 	  render: function () {
+	    var smashListItems = this.state.items.map(function (item, idx) {
+	      return React.createElement(
+	        "li",
+	        { key: idx },
+	        item
+	      );
+	    });
+	
+	    debugger;
 	    return React.createElement(
 	      "div",
 	      { className: "list" },
@@ -20348,26 +20373,7 @@
 	      React.createElement(
 	        "ul",
 	        { className: "list-items" },
-	        React.createElement(
-	          "li",
-	          null,
-	          "Fireball gimp"
-	        ),
-	        React.createElement(
-	          "li",
-	          null,
-	          "Green Missile Misfire read"
-	        ),
-	        React.createElement(
-	          "li",
-	          null,
-	          "Super Jump Punch OoS punish"
-	        ),
-	        React.createElement(
-	          "li",
-	          null,
-	          "Luigi Cyclone gimp"
-	        ),
+	        smashListItems,
 	        React.createElement(
 	          "li",
 	          null,
@@ -20413,8 +20419,8 @@
 	    return _smash_list_items.slice();
 	  },
 	
-	  fetch: function (page_idx) {
-	    return "Not set up yet";
+	  fetch: function () {
+	    _smash_list_items = ["Fireball gimp", "Green Missile misfire read", "Super Jump Punch OoS punish"];
 	  },
 	
 	  updateSmashList: function (id, payload) {
@@ -20426,9 +20432,7 @@
 	        data: { smash_list_item: payload },
 	        type: 'PATCH',
 	        success: function (result) {
-	          smash_list_item.name = result.name;
-	          smash_list_item.url = result.url;
-	          smash_list_item.note = result.note;
+	          smash_list_item.goal = result.goal;
 	          SmashListStore.changed();
 	        }
 	      });
