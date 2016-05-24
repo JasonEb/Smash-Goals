@@ -50,9 +50,9 @@ var SmashListStore = {
 
   fetch: function () {
     _smash_list_items = [
-        {id: 0, description: "Fireball gimp"},
-        {id: 1, description: "Luigi Missle misfire read"},
-        {id: 2, description: "Super Jump Punch OoS punish"}
+        {id: 0, description: "Fireball gimp", completed: false},
+        {id: 1, description: "Luigi Missle misfire read", completed: false},
+        {id: 2, description: "Super Jump Punch OoS punish", completed: false}
       ];
 
     SmashListStore.changed();

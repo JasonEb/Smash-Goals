@@ -1,5 +1,4 @@
-var React = require('react'),
-    ReactDOM = require('react-dom');
+var React = require('react');
 
 var Item = React.createClass({
   render: function() {
@@ -7,9 +6,6 @@ var Item = React.createClass({
       <li className={itemClass}>
       </li>
     )
-  },
-
-  handleComplete: function() {
   }
 })
 

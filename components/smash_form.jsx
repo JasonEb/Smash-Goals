@@ -1,4 +1,5 @@
 var React = require('react'),
+    Item = require('./smash_form_item.jsx'),
     SmashListStore = require('../stores/smash_list_store.js');
 
 var SmashForm = React.createClass({
@@ -32,19 +33,16 @@ var SmashForm = React.createClass({
   },
 
   render: function () {
-    var items = this.state.items;
-
+    var items = this.state.items.map(function (item) {
+      return <li key={item.id}>{item.description}</li>
+    })
     return (
       <div className="list">
 
         <h3 className="list-header">Smash Goals</h3>
 
         <ul className="list-items">
-          {
-            items.map(function (item) {
-              return <li key={item.id}>{item.description}</li>
-            })
-          }
+          {items}
           <li>
             <form onSubmit={this.handleSubmit}>
               <input className="list-form" type="text" placeholder="Enter a goal!"/>

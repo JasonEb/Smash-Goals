@@ -20332,6 +20332,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1),
+	    Item = __webpack_require__(170),
 	    SmashListStore = __webpack_require__(169);
 	
 	var SmashForm = React.createClass({
@@ -20367,8 +20368,13 @@
 	  },
 	
 	  render: function () {
-	    var items = this.state.items;
-	
+	    var items = this.state.items.map(function (item) {
+	      return React.createElement(
+	        'li',
+	        { key: item.id },
+	        item.description
+	      );
+	    });
 	    return React.createElement(
 	      'div',
 	      { className: 'list' },
@@ -20380,13 +20386,7 @@
 	      React.createElement(
 	        'ul',
 	        { className: 'list-items' },
-	        items.map(function (item) {
-	          return React.createElement(
-	            'li',
-	            { key: item.id },
-	            item.description
-	          );
-	        }),
+	        items,
 	        React.createElement(
 	          'li',
 	          null,
@@ -20458,7 +20458,7 @@
 	  },
 	
 	  fetch: function () {
-	    _smash_list_items = [{ id: 0, description: "Fireball gimp" }, { id: 1, description: "Luigi Missle misfire read" }, { id: 2, description: "Super Jump Punch OoS punish" }];
+	    _smash_list_items = [{ id: 0, description: "Fireball gimp", completed: false }, { id: 1, description: "Luigi Missle misfire read", completed: false }, { id: 2, description: "Super Jump Punch OoS punish", completed: false }];
 	
 	    SmashListStore.changed();
 	  },
@@ -20494,6 +20494,22 @@
 	};
 	
 	module.exports = SmashListStore;
+
+/***/ },
+/* 170 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+	
+	var Item = React.createClass({
+	  displayName: 'Item',
+	
+	  render: function () {
+	    return React.createElement('li', { className: itemClass });
+	  }
+	});
+	
+	module.exports = Item;
 
 /***/ }
 /******/ ]);
