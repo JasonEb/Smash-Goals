@@ -1,15 +1,16 @@
-var React = require('react');
+var React = require('react'),
+    SmashListStore = require('../stores/smash_list_store.js');
 
 var SmashForm = React.createClass({
   getInitialState: function () {
     return ({
-      items: SmashListStore.all()
+      items: []
     });
   },
 
   smashListChanged: function () {
     var self = this;
-    self.setState({ items: SmashListStore.all()})
+    self.setState({ items: SmashListStore.all()});
   },
 
   componentDidMount: function () {
@@ -18,18 +19,23 @@ var SmashForm = React.createClass({
   },
 
   render: function () {
-    var smashListItems = this.state.items.map(function(item, idx){
-        return <li key={idx}>{item}</li>;
-    });
+    var items = [
+        {id: 1, description: "Fireball gimp"},
+        {id: 2, description: "Luigi Missle misfire read"},
+        {id: 3, description: "Super Jump Punch OoS punish"}
+      ];
 
-    debugger
     return (
       <div className="list">
 
         <h3 className="list-header">Special</h3>
 
         <ul className="list-items">
-          {smashListItems}
+          {
+            items.map(function (item) {
+              return <li key={item.id}>{item.description}</li>
+            })
+          }
           <li>
             <input className="list-form" type="text" placeholder="Enter a goal!">
             </input>

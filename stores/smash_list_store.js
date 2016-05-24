@@ -28,7 +28,13 @@ var SmashListStore = {
   },
 
   fetch: function () {
-    _smash_list_items =  ["Fireball gimp", "Green Missile misfire read", "Super Jump Punch OoS punish"]
+    _smash_list_items = [
+        {id: 1, description: "Fireball gimp"},
+        {id: 2, description: "Luigi Missle misfire read"},
+        {id: 3, description: "Super Jump Punch OoS punish"}
+      ];
+
+    SmashListStore.changed();
   },
 
   updateSmashList: function (id, payload) {

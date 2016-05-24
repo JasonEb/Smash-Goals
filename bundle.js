@@ -20331,14 +20331,15 @@
 /* 168 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var React = __webpack_require__(1);
+	var React = __webpack_require__(1),
+	    SmashListStore = __webpack_require__(169);
 	
 	var SmashForm = React.createClass({
-	  displayName: "SmashForm",
+	  displayName: 'SmashForm',
 	
 	  getInitialState: function () {
 	    return {
-	      items: SmashListStore.all()
+	      items: []
 	    };
 	  },
 	
@@ -20353,31 +20354,30 @@
 	  },
 	
 	  render: function () {
-	    var smashListItems = this.state.items.map(function (item, idx) {
-	      return React.createElement(
-	        "li",
-	        { key: idx },
-	        item
-	      );
-	    });
+	    var items = [{ id: 1, description: "Fireball gimp" }, { id: 2, description: "Luigi Missle misfire read" }, { id: 3, description: "Super Jump Punch OoS punish" }];
 	
-	    debugger;
 	    return React.createElement(
-	      "div",
-	      { className: "list" },
+	      'div',
+	      { className: 'list' },
 	      React.createElement(
-	        "h3",
-	        { className: "list-header" },
-	        "Special"
+	        'h3',
+	        { className: 'list-header' },
+	        'Special'
 	      ),
 	      React.createElement(
-	        "ul",
-	        { className: "list-items" },
-	        smashListItems,
+	        'ul',
+	        { className: 'list-items' },
+	        items.map(function (item) {
+	          return React.createElement(
+	            'li',
+	            { key: item.id },
+	            item.description
+	          );
+	        }),
 	        React.createElement(
-	          "li",
+	          'li',
 	          null,
-	          React.createElement("input", { className: "list-form", type: "text", placeholder: "Enter a goal!" })
+	          React.createElement('input', { className: 'list-form', type: 'text', placeholder: 'Enter a goal!' })
 	        )
 	      )
 	    );
@@ -20420,7 +20420,9 @@
 	  },
 	
 	  fetch: function () {
-	    _smash_list_items = ["Fireball gimp", "Green Missile misfire read", "Super Jump Punch OoS punish"];
+	    _smash_list_items = [{ id: 1, description: "Fireball gimp" }, { id: 2, description: "Luigi Missle misfire read" }, { id: 3, description: "Super Jump Punch OoS punish" }];
+	
+	    SmashListStore.changed();
 	  },
 	
 	  updateSmashList: function (id, payload) {
