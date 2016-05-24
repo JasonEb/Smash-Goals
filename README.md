@@ -9,6 +9,8 @@ Smash Goals is a simple web-app where streamers can add a Smash-flavored To Do's
 Streamers utilizing programs such as Open Broadcaster Software can add a Window Capture overlay that can target a color range for a "green screen" effect. 
 
 ## Using Smash Goals
+![image](https://fat.gfycat.com/MellowWatchfulFrillneckedlizard.gif)
+
 Users can add new goals at the bottom of the form. Deleting or Editing goals is done by clicking on the text. 
 
 Goals don't save or persist however, so once the user leaves the window everything will reset. Further development will target providing a back-end and adding more features, such as dragging and sorting goals. 
