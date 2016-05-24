@@ -20410,12 +20410,22 @@
 	var Item = React.createClass({
 	  displayName: 'Item',
 	
+	  handleKeyDown: function (e) {
+	    var key = e.keyCode;
+	    var itemText = e.target.textContent;
+	    var deletable = (key === 8 || key === 46) && itemText.length <= 0;
+	
+	    if (deletable) {
+	      e.preventDefault();
+	      SmashListStore.delete(this.props.item.id);
+	    }
+	  },
 	
 	  render: function () {
 	    var item = this.props.item;
 	    return React.createElement(
 	      'li',
-	      { contentEditable: true },
+	      { contentEditable: true, onKeyDown: this.handleKeyDown },
 	      item.description
 	    );
 	  }
