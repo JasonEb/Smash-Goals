@@ -50,9 +50,11 @@ var SmashListStore = {
 
   fetch: function () {
     _smash_list_items = [
-        {id: 0, description: "Fireball gimp", completed: false},
-        {id: 1, description: "Luigi Missle misfire read", completed: false},
-        {id: 2, description: "Super Jump Punch OoS punish", completed: false}
+        {id: 0, description: "Welcome to Smash Goals!", completed: false},
+        {id: 1, description: "Click on an item to edit the text", completed: false},
+        {id: 2, description: "Delete a goal by clearing all the text!", completed: false},
+        {id: 3, description: "Win 10 Ranked matches", completed: false},
+        {id: 4, description: "Don't roll for a whole set!", completed: false}
       ];
 
     SmashListStore.changed();
