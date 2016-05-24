@@ -20354,7 +20354,7 @@
 	  },
 	
 	  render: function () {
-	    var items = [{ id: 1, description: "Fireball gimp" }, { id: 2, description: "Luigi Missle misfire read" }, { id: 3, description: "Super Jump Punch OoS punish" }];
+	    var items = this.state.items;
 	
 	    return React.createElement(
 	      'div',
@@ -20415,6 +20415,11 @@
 	  },
 	
 	  //CRUD
+	  add: function (item) {
+	    _smash_list_items.push(item);
+	    SmashListStore.changed();
+	  },
+	
 	  all: function () {
 	    return _smash_list_items.slice();
 	  },

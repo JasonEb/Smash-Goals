@@ -23,6 +23,11 @@ var SmashListStore = {
   },
 
   //CRUD
+  add: function (item) {
+    _smash_list_items.push(item);
+    SmashListStore.changed();
+  },
+
   all: function () {
     return _smash_list_items.slice();
   },

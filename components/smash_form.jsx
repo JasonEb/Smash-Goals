@@ -19,11 +19,7 @@ var SmashForm = React.createClass({
   },
 
   render: function () {
-    var items = [
-        {id: 1, description: "Fireball gimp"},
-        {id: 2, description: "Luigi Missle misfire read"},
-        {id: 3, description: "Super Jump Punch OoS punish"}
-      ];
+    var items = this.state.items;
 
     return (
       <div className="list">
