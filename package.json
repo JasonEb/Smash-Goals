@@ -10,10 +10,12 @@
     "formsy-react": "^0.18.0",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
-    "react-inline-edit": "^3.0.0",
+    "react-edit-inline": "^1.0.7",
     "webpack": "^1.13.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "react-edit-inline": "^1.0.7"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

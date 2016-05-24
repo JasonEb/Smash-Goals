@@ -52,7 +52,7 @@
 	    ReactDOM.render(React.createElement(SmashForm, null), document.getElementById('main'));
 	});
 	
-	SmashListStore = __webpack_require__(169);
+	SmashListStore = __webpack_require__(170);
 
 /***/ },
 /* 1 */
@@ -20332,8 +20332,8 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1),
-	    Item = __webpack_require__(170),
-	    SmashListStore = __webpack_require__(169);
+	    Item = __webpack_require__(169),
+	    SmashListStore = __webpack_require__(170);
 	
 	var SmashForm = React.createClass({
 	  displayName: 'SmashForm',
@@ -20403,6 +20403,28 @@
 
 /***/ },
 /* 169 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+	
+	var Item = React.createClass({
+	  displayName: 'Item',
+	
+	
+	  render: function () {
+	    var item = this.props.item;
+	    return React.createElement(
+	      'li',
+	      { contentEditable: true },
+	      item.description
+	    );
+	  }
+	});
+	
+	module.exports = Item;
+
+/***/ },
+/* 170 */
 /***/ function(module, exports) {
 
 	var _smash_list_items = [];
@@ -20492,29 +20514,6 @@
 	};
 	
 	module.exports = SmashListStore;
-
-/***/ },
-/* 170 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(1);
-	
-	var Item = React.createClass({
-	  displayName: 'Item',
-	
-	  handleClick: function (e) {},
-	  render: function () {
-	    var item = this.props.item;
-	
-	    return React.createElement(
-	      'li',
-	      { onClick: this.handleClick },
-	      item.description
-	    );
-	  }
-	});
-	
-	module.exports = Item;
 
 /***/ }
 /******/ ]);

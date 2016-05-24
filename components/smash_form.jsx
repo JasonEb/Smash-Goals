@@ -35,7 +35,7 @@ var SmashForm = React.createClass({
 
   render: function () {
     var items = this.state.items.map(function (item, idx) {
-      return <Item key={idx} item={item} />
+      return <Item key={idx} item={item}/>
     })
 
     return (
@@ -49,7 +49,6 @@ var SmashForm = React.createClass({
             <form onSubmit={this.handleSubmit}>
               <input className="list-form" type="text" placeholder="Enter a goal!"/>
             </form>
-
           </li>
         </ul>
 
