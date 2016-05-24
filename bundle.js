@@ -20353,6 +20353,19 @@
 	    SmashListStore.fetch();
 	  },
 	
+	  handleSubmit: function (e) {
+	    e.preventDefault();
+	
+	    var newItem = {
+	      //assumming id is next here
+	      id: this.state.items.slice(-1)[0].id + 1,
+	      description: e.target.children[0].value
+	    };
+	
+	    SmashListStore.add(newItem);
+	    e.target.children[0].value = "";
+	  },
+	
 	  render: function () {
 	    var items = this.state.items;
 	
@@ -20362,7 +20375,7 @@
 	      React.createElement(
 	        'h3',
 	        { className: 'list-header' },
-	        'Special'
+	        'Smash Goals'
 	      ),
 	      React.createElement(
 	        'ul',
@@ -20377,7 +20390,11 @@
 	        React.createElement(
 	          'li',
 	          null,
-	          React.createElement('input', { className: 'list-form', type: 'text', placeholder: 'Enter a goal!' })
+	          React.createElement(
+	            'form',
+	            { onSubmit: this.handleSubmit },
+	            React.createElement('input', { className: 'list-form', type: 'text', placeholder: 'Enter a goal!' })
+	          )
 	        )
 	      )
 	    );

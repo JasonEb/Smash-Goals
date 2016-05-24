@@ -18,13 +18,26 @@ var SmashForm = React.createClass({
     SmashListStore.fetch();
   },
 
+  handleSubmit: function (e) {
+    e.preventDefault();
+
+    var newItem = {
+      //assumming id is next here
+      id: this.state.items.slice(-1)[0].id + 1,
+      description: e.target.children[0].value
+    };
+
+    SmashListStore.add(newItem);
+    e.target.children[0].value = "";
+  },
+
   render: function () {
     var items = this.state.items;
 
     return (
       <div className="list">
 
-        <h3 className="list-header">Special</h3>
+        <h3 className="list-header">Smash Goals</h3>
 
         <ul className="list-items">
           {
@@ -33,8 +46,10 @@ var SmashForm = React.createClass({
             })
           }
           <li>
-            <input className="list-form" type="text" placeholder="Enter a goal!">
-            </input>
+            <form onSubmit={this.handleSubmit}>
+              <input className="list-form" type="text" placeholder="Enter a goal!"/>
+            </form>
+
           </li>
         </ul>
 
