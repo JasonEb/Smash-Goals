@@ -18,9 +18,11 @@ Goals don't save or persist however, so once the user leaves the window everythi
 ## Tools used
 Smash Goals primarily utilizes the React library. CSS and design emulated wonderfully by [@sdvim](https://github.com/sdvim)!
 
-## Development
-Further features in consideration are :
+## Current Development
+- Add a Minecraft themed menu
+- Add Jest for testings
 
+Further features in consideration are :  
 - Adding a `completed` feature
 - Setting up a back-end so users can sign up and save their goals  
 - Dragging goals to different orders
