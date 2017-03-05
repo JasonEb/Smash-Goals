@@ -58,7 +58,7 @@ var SmashForm = React.createClass({
           {items}
           <li>
             <form onSubmit={this.handleSubmit}>
-              <input className="list-form" type="text" placeholder="Enter a goal!"/>
+              <input className="list-form" type="text" placeholder="...!"/>
             </form>
           </li>
         </ul>
