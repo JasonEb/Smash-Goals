@@ -1,6 +1,6 @@
 ## Smash Goals
 
-View the app at [https://holyoke.github.io/Smash-Goals](https://jasoneb.github.io/Smash-Goals)
+View the app at [https://jasoneb.github.io/Smash-Goals](https://jasoneb.github.io/Smash-Goals)
 
 Smash Goals is a simple web-app where streamers can add a Smash-flavored goals list overlay on top of their stream.
 
